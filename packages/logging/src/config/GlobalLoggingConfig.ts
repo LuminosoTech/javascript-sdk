@@ -14,7 +14,7 @@
  *
  */
 
-import { NoopErrorHandler } from "../errorHandler";
+import { NoopErrorHandler } from "../errors";
 import { ErrorHandler } from "../errors/ErrorHandler";
 import { LogHandler, LogLevel } from "../models";
 
