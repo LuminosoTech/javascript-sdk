@@ -1,0 +1,49 @@
+{
+    "name": "@luminoso/js-sdk-logging",
+    "version": "0.1.0",
+    "description": "Luminoso Logging",
+    "homepage": "https://github.com/LuminosoTech/javascript-sdk/tree/master/packages/logging",
+    "license": "Apache-2.0",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "directories": {
+        "lib": "lib",
+        "test": "test"
+    },
+    "files": [
+        "lib",
+        "LICENSE",
+        "CHANGELOG",
+        "README.md",
+        "package.json"
+    ],
+    "scripts": {
+        "tsc": "rm -rf lib && tsc",
+        "test": "jest",
+        "prepublishOnly": "jest && npm run tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LuminosoTech/javascript-sdk.git",
+        "directory": "packages/logging"
+    },
+    "keywords": [
+        "luminoso"
+    ],
+    "bugs": {
+        "url": "https://github.com/LuminosoTech/javascript-sdk/issues"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@luminoso/js-sdk-utils": "^0.1.0",
+        "chalk": "^4.1.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.19",
+        "jest": "^26.6.3",
+        "ts-jest": "^26.4.4",
+        "typescript": "^4.1.3"
+    }
+}
