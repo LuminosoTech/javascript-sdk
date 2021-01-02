@@ -1,6 +1,6 @@
 {
   "name": "@luminoso/js-sdk-logging",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Luminoso Logging",
   "homepage": "https://github.com/LuminosoTech/javascript-sdk/tree/main/packages/logging",
   "license": "Apache-2.0",
