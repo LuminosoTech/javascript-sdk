@@ -14,7 +14,9 @@
  *
  */
 
-export * from "./errors";
-export * from "./models";
-export * from "./log-handler";
 export * from "./config";
+export * from "./errors";
+export * from "./facade";
+export * from "./log-handler";
+export * from "./manager";
+export * from "./models";
