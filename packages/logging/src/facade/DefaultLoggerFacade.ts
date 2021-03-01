@@ -17,6 +17,7 @@
 import { print } from "@luminoso/js-sdk-utils";
 
 import { GlobalLoggingConfig } from "../config/GlobalLoggingConfig";
+import { NoopErrorHandler } from "../errors";
 import { ErrorHandler } from "../errors/ErrorHandler";
 import { LoggerFacade, LogHandler, LogLevel } from "../models";
 
@@ -32,9 +33,9 @@ interface LogData {
 }
 
 export class DefaultLoggerFacade implements LoggerFacade {
-  private _logLevel: LogLevel = GlobalLoggingConfig.instance.level;
-  private _logHandler: LogHandler | undefined = GlobalLoggingConfig.instance.logHandler;
-  private _errorHandler: ErrorHandler = GlobalLoggingConfig.instance.errorHandler;
+  private _logLevel: LogLevel = LogLevel.NOTSET;
+  private _logHandler: LogHandler | undefined = undefined;
+  private _errorHandler: ErrorHandler = new NoopErrorHandler();
 
   constructor(config?: DefaultLoggerConfig) {
     if (config) {
@@ -106,6 +107,18 @@ export class DefaultLoggerFacade implements LoggerFacade {
 
   get errorHandler(): ErrorHandler {
     return this._errorHandler;
+  }
+
+  set logLevel(level: LogLevel) {
+    this._logLevel = level;
+  }
+
+  set logHandler(handler: LogHandler | undefined) {
+    this._logHandler = handler;
+  }
+
+  set errorHandler(handler: ErrorHandler) {
+    this._errorHandler = handler;
   }
 
   private format(data: LogData): string {
