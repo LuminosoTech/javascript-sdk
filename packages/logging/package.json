@@ -37,7 +37,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@luminoso/js-sdk-utils": "^0.1.0",
+    "@luminoso/js-sdk-utils": "^0.1.1",
     "chalk": "^4.1.0"
   },
   "devDependencies": {

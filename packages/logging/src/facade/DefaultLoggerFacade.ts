@@ -14,7 +14,7 @@
  *
  */
 
-import { print } from "@luminoso/js-sdk-utils";
+import { printf } from "@luminoso/js-sdk-utils";
 
 import { GlobalLoggingConfig } from "../config/GlobalLoggingConfig";
 import { NoopErrorHandler } from "../errors";
@@ -122,7 +122,7 @@ export class DefaultLoggerFacade implements LoggerFacade {
   }
 
   private format(data: LogData): string {
-    return `${print(data.message, ...data.splat)}`;
+    return `${printf(data.message, ...data.splat)}`;
   }
 
   private internalLog(level: LogLevel, data: LogData): void {
