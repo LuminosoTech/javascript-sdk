@@ -1,5 +1,5 @@
 /// <reference types="jest" />
-import { groupBy, objectEntries, objectValues, find, keyBy, print } from "../src";
+import { groupBy, objectEntries, objectValues, find, keyBy, printf } from "../src";
 
 describe("utils", () => {
   describe("groupBy", () => {
@@ -79,31 +79,31 @@ describe("utils", () => {
 
   describe("print", () => {
     it("print(msg)", () => {
-      expect(print("this is my message")).toBe("this is my message");
+      expect(printf("this is my message")).toBe("this is my message");
     });
 
     it("print(msg, arg1)", () => {
-      expect(print("hi %s", "jordan")).toBe("hi jordan");
+      expect(printf("hi %s", "jordan")).toBe("hi jordan");
     });
 
     it("print(msg, arg1, arg2)", () => {
-      expect(print("hi %s its %s", "jordan", "jon")).toBe("hi jordan its jon");
+      expect(printf("hi %s its %s", "jordan", "jon")).toBe("hi jordan its jon");
     });
 
     it("should print undefined if an argument is missing", () => {
-      expect(print("hi %s its %s", "jordan")).toBe("hi jordan its undefined");
+      expect(printf("hi %s its %s", "jordan")).toBe("hi jordan its undefined");
     });
 
     it("should evaluate a function", () => {
-      expect(print("hi %s its %s", "jordan", () => "a function")).toBe("hi jordan its a function");
+      expect(printf("hi %s its %s", "jordan", () => "a function")).toBe("hi jordan its a function");
     });
 
     it("should work with numbers", () => {
-      expect(print("hi %s", 123)).toBe("hi 123");
+      expect(printf("hi %s", 123)).toBe("hi 123");
     });
 
     it("should not error when passed an object", () => {
-      expect(print("hi %s", { foo: "bar" })).toBe("hi [object Object]");
+      expect(printf("hi %s", { foo: "bar" })).toBe("hi [object Object]");
     });
   });
 });

@@ -21,6 +21,8 @@ import { DefaultLogManager } from "@luminoso/js-sdk-logging";
 const logger = DefaultLogManager.instance.getLogger("DatafileManager");
 
 const GET_METHOD = "GET";
+const POST_METHOD = "POST";
+
 const READY_STATE_DONE = 4;
 
 function parseHeadersFromXhr(req: XMLHttpRequest): Headers {
@@ -57,6 +59,49 @@ export function makeGetRequest(reqUrl: string, headers: Headers): AbortableReque
 
   const responsePromise: Promise<Response> = new Promise((resolve, reject) => {
     req.open(GET_METHOD, reqUrl, true);
+
+    setHeadersInXhr(headers, req);
+
+    req.onreadystatechange = (): void => {
+      if (req.readyState === READY_STATE_DONE) {
+        const statusCode = req.status;
+        if (statusCode === 0) {
+          reject(new Error("Request error"));
+          return;
+        }
+
+        const headers = parseHeadersFromXhr(req);
+        const resp: Response = {
+          statusCode: req.status,
+          body: req.responseText,
+          headers,
+        };
+        resolve(resp);
+      }
+    };
+
+    req.timeout = REQUEST_TIMEOUT_MS;
+
+    req.ontimeout = (): void => {
+      logger.error("Request timed out");
+    };
+
+    req.send();
+  });
+
+  return {
+    responsePromise,
+    abort(): void {
+      req.abort();
+    },
+  };
+}
+
+export function makePostRequest(reqUrl: string, headers: Headers): AbortableRequest {
+  const req = new XMLHttpRequest();
+
+  const responsePromise: Promise<Response> = new Promise((resolve, reject) => {
+    req.open(POST_METHOD, reqUrl, true);
 
     setHeadersInXhr(headers, req);
 

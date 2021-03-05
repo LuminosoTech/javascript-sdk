@@ -3,10 +3,8 @@
   "version": "0.0.1",
   "description": "JavaScript SDK for Luminoso feature-flags",
   "module": "dist/luminoso.browser.es.min.js",
-  "main": "dist/lumonoso.node.min.js",
   "browser": "dist/luminoso.browser.min.js",
-  "react-native": "dist/luminoso.react_native.min.js",
-  "typings": "lib/index.d.ts",
+  "typings": "types/index.d.ts",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit && eslint 'lib/**/*.js' 'lib/**/*.ts'",
@@ -34,29 +32,31 @@
     "node": ">=8.0.0"
   },
   "keywords": [
-    "optimizely"
+    "luminoso"
   ],
   "bugs": {
     "url": "https://github.com/luminosoTech/javascript-sdk/issues"
   },
   "homepage": "https://github.com/luminosoTech/javascript-sdk/tree/main/packages/luminoso-sdk",
   "dependencies": {
-    "@optimizely/js-sdk-logging": "^0.1.0",
-    "@optimizely/js-sdk-utils": "^0.4.0",
-    "json-schema": "^0.2.3",
-    "murmurhash": "0.0.2"
+    "@luminoso/js-sdk-utils": "^0.1.0",
+    "esbuild": "^0.8.53",
+    "json-schema": "^0.3.0",
+    "murmurhash": "2.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-node-resolve": "^7.1.1",
-    "@types/chai": "^4.2.11",
-    "@types/mocha": "^5.2.7",
-    "@typescript-eslint/eslint-plugin": "^3.2.0",
-    "@typescript-eslint/parser": "^3.2.0",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@rollup/plugin-typescript": "^8.2.0",
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.1",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
     "bluebird": "^3.4.6",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
-    "eslint": "^6.7.2",
+    "eslint": "^7.21.0",
     "json-loader": "^0.5.4",
     "karma": "^4.4.1",
     "karma-browserstack-launcher": "^1.5.1",
@@ -65,19 +65,20 @@
     "karma-mocha": "^1.3.0",
     "karma-webpack": "^4.0.2",
     "lodash": "^4.17.11",
-    "mocha": "^5.2.0",
+    "mocha": "^8.3.0",
     "mocha-lcov-reporter": "^1.3.0",
     "nock": "^7.7.2",
     "nyc": "^15.0.1",
     "promise-polyfill": "8.1.0",
-    "rollup": "2.2.0",
-    "rollup-plugin-terser": "^5.3.0",
-    "rollup-plugin-typescript2": "^0.27.1",
-    "sinon": "^2.3.1",
-    "ts-loader": "^7.0.5",
-    "ts-node": "^8.10.2",
-    "typescript": "^4.0.3",
-    "webpack": "^4.42.1"
+    "rollup": "2.40.0",
+    "rollup-plugin-dts": "^2.0.1",
+    "rollup-plugin-esbuild": "^2.6.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "sinon": "^9.2.4",
+    "ts-loader": "^8.0.17",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.2",
+    "webpack": "^5.24.2"
   },
   "publishConfig": {
     "access": "public"

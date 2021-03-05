@@ -66,7 +66,7 @@ export function keyBy<K>(arr: K[], keyByFn: (item: K) => string): { [key: string
   return map;
 }
 
-export function print(format: string, ...args: any[]): string {
+export function printf(format: string, ...args: any[]): string {
   var i = 0;
   return format.replace(/%s/g, function () {
     const arg = args[i++];

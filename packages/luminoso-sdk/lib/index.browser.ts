@@ -14,3 +14,14 @@
  * limitations under the License.
  *
  */
+
+import { LuminosoInstance } from "./LuminosoInstance";
+import { SDKOptions } from "./shared";
+import packageJson from "../package.json";
+
+const CLIENT_ENGINE = "react";
+const CLIENT_VERSION = packageJson.version;
+
+export const createInstance = (config: SDKOptions): LuminosoInstance => {
+  return new LuminosoInstance({ clientEngine: CLIENT_ENGINE, clientVersion: CLIENT_VERSION, sdkKey: config.sdkKey });
+};

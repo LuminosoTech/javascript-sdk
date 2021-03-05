@@ -1,0 +1,14 @@
+export const REQUEST_TIMEOUT_MS = 60 * 1000; // 1 minute
+
+export const getBaseUrl = () => {
+  switch (process.env.NODE_ENV) {
+    case "local":
+      return "http://localhost:5000";
+    case "development":
+      return "http://localhost:5000";
+    case "production":
+      return "http://localhost:5000";
+    default:
+      return "http://localhost:5000";
+  }
+};

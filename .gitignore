@@ -8,3 +8,4 @@ coverage/
 
 .idea/*
 yarn.lock
+pnpm-lock.yaml
