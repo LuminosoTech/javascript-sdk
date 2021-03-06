@@ -97,7 +97,7 @@ export function makeGetRequest(reqUrl: string, headers: Headers): AbortableReque
   };
 }
 
-export function makePostRequest(reqUrl: string, headers: Headers): AbortableRequest {
+export function makePostRequest(reqUrl: string, headers: Headers, data: FormData): AbortableRequest {
   const req = new XMLHttpRequest();
 
   const responsePromise: Promise<Response> = new Promise((resolve, reject) => {
@@ -129,7 +129,7 @@ export function makePostRequest(reqUrl: string, headers: Headers): AbortableRequ
       logger.error("Request timed out");
     };
 
-    req.send();
+    req.send(data);
   });
 
   return {

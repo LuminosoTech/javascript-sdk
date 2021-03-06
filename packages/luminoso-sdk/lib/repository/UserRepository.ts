@@ -7,5 +7,7 @@ export class UserRepository {
     this.network = network;
   }
 
-  public postClientUser = () => {};
+  public postClientUser = () => {
+    this.network.postUser();
+  };
 }

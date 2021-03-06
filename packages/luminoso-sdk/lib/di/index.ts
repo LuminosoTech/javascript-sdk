@@ -9,8 +9,8 @@ export class Di {
   private readonly _userService: UserService;
   private readonly _variationService: VariationService;
 
-  constructor() {
-    const networkClient = networkModule.networkClient();
+  constructor(clientKey: string) {
+    const networkClient = networkModule.networkClient(clientKey);
 
     const userRepository = repositoryModule.user(networkClient);
     const variationRepository = repositoryModule.variation(networkClient);
@@ -19,9 +19,9 @@ export class Di {
     this._variationService = serviceModule.variation(variationRepository);
   }
 
-  public static instance = () => {
+  public static instance = (clientKey: string) => {
     if (Di._instance === undefined) {
-      Di._instance = new Di();
+      Di._instance = new Di(clientKey);
     }
     return Di._instance;
   };
