@@ -1,3 +1,4 @@
+import { ClientUserBody } from "../models/user/body/ClientUserBody";
 import { NetworkClient } from "../network/NetworkClient";
 
 export class UserRepository {
@@ -7,7 +8,7 @@ export class UserRepository {
     this.network = network;
   }
 
-  public postClientUser = () => {
-    this.network.postUser();
+  public postClientUser = (body: ClientUserBody) => {
+    this.network.postUser(body);
   };
 }

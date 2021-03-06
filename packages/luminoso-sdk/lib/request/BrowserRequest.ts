@@ -97,15 +97,18 @@ export function makeGetRequest(reqUrl: string, headers: Headers): AbortableReque
   };
 }
 
-export function makePostRequest(reqUrl: string, headers: Headers, data: FormData): AbortableRequest {
+export function makePostRequest(reqUrl: string, headers: Headers, data: any): AbortableRequest {
   const req = new XMLHttpRequest();
 
   const responsePromise: Promise<Response> = new Promise((resolve, reject) => {
     req.open(POST_METHOD, reqUrl, true);
 
     setHeadersInXhr(headers, req);
+    // set `Content-Type` header
+    req.setRequestHeader("Content-Type", "application/json");
 
     req.onreadystatechange = (): void => {
+      logger.debug("readyState", req.readyState.toString());
       if (req.readyState === READY_STATE_DONE) {
         const statusCode = req.status;
         if (statusCode === 0) {
@@ -129,7 +132,7 @@ export function makePostRequest(reqUrl: string, headers: Headers, data: FormData
       logger.error("Request timed out");
     };
 
-    req.send(data);
+    req.send(JSON.stringify(data));
   });
 
   return {

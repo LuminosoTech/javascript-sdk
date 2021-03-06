@@ -67,6 +67,7 @@ interface SDKOptions {
 }
 
 declare class LuminosoInstance {
+    private di;
     private manager;
     private listeners;
     constructor(options: Partial<LuminosoOptions>);
