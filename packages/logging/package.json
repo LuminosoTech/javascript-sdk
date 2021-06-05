@@ -1,6 +1,6 @@
 {
   "name": "@luminoso/js-sdk-logging",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Luminoso Logging",
   "homepage": "https://github.com/LuminosoTech/javascript-sdk/tree/main/packages/logging",
   "license": "Apache-2.0",
@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "tsc": "rm -rf lib && tsc",
+    "tsc:watch": "rm -rf lib && tsc --watch",
     "test": "jest",
     "prepublishOnly": "npm run tsc"
   },

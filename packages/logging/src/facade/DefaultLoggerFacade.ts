@@ -14,13 +14,12 @@
  *
  */
 
-import { printf } from "@luminoso/js-sdk-utils";
-
 import { GlobalLoggingConfig } from "../config/GlobalLoggingConfig";
 import { NoopErrorHandler } from "../errors";
 import { ErrorHandler } from "../errors/ErrorHandler";
 import { ConsoleLogHandler } from "../log-handler";
 import { LoggerFacade, LogHandler, LogLevel } from "../models";
+import { printf } from "../utils";
 
 interface DefaultLoggerConfig {
   logLevel?: LogLevel;
