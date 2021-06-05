@@ -1,5 +1,4 @@
 import { DefaultLogManager, ConsoleLogHandler, LogLevel } from "@luminoso/js-sdk-logging";
-import { printf } from "@luminoso/js-sdk-utils";
 
 import { DatafileManager, DatafileManagerConfig, DatafileUpdate } from "../@types/datafileManager";
 import EventEmitter, { Disposer } from "../EventEmitter";
@@ -7,6 +6,7 @@ import { AbortableRequest, Response, Headers } from "../@types/http";
 import { DEFAULT_UPDATE_INTERVAL, MIN_UPDATE_INTERVAL, DEFAULT_URL_TEMPLATE } from "../config";
 import BackoffController from "../BackoffController";
 import PersistentKeyValueCache from "../@types/persistentKeyValueCache";
+import { printf } from "../utils";
 
 const logger = DefaultLogManager.instance.getLogger("DatafileManager");
 

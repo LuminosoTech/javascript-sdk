@@ -43,7 +43,6 @@
     "typescript": "4.2.2"
   },
   "dependencies": {
-    "@luminoso/js-sdk-utils": "0.1.1",
     "decompress-response": "^4.2.1"
   },
   "scripts": {
