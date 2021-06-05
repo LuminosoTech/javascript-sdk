@@ -1,5 +1,7 @@
 import { ErrorHandler, LogHandler, LogLevel } from "@luminoso/js-sdk-logging";
 
+export { User } from "./models";
+
 export type UserAttributes = {
   [name: string]: any;
 };

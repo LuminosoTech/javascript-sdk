@@ -1,6 +1,8 @@
 import EventEmitter, { Listener } from "@luminoso/datafile-manager/lib/EventEmitter";
 import { DatafileManager } from "./core/DatafileManager";
 import { Di } from "./di";
+import { User } from "./models/user/interfaces/User";
+import { FeaturesEnabledByKey } from "./models/variations/interfaces/FlagsMap";
 import { LuminosoOptions } from "./shared";
 
 export class LuminosoInstance {
@@ -9,25 +11,32 @@ export class LuminosoInstance {
   private manager: DatafileManager;
   private listeners: EventEmitter = new EventEmitter();
 
-  constructor(options: Partial<LuminosoOptions>) {
+  constructor(options: Partial<LuminosoOptions>, user?: User) {
     this.di = Di.instance(options.sdkKey!!);
     this.manager = new DatafileManager(options.sdkKey!!);
 
-    this.di.userService.postClientUser({
-      key: "test",
-      email: "test@test.com",
-      firstName: "Fabrizio",
-      lastName: "Rodin-Miron",
-    });
+    if (user) {
+      this.di.userService.postClientUser(user);
+    }
+  }
+
+  public linkUser(userUuid: String, user: User) {}
+
+  public setUser(user: User) {}
+
+  public allFlags(key: string): FeaturesEnabledByKey {
+    return {};
   }
 
   get datafile(): string {
     return this.manager.datafile;
   }
 
-  public variation(key: string): string {
-    return "";
+  public variation(experimentUuid: string, flagUuid: string, defaultValue: boolean): boolean {
+    return true;
   }
+
+  public flush() {}
 
   public track(event: string) {}
 

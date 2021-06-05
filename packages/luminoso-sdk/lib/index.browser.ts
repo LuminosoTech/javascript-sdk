@@ -18,10 +18,17 @@
 import { LuminosoInstance } from "./LuminosoInstance";
 import { SDKOptions } from "./shared";
 import packageJson from "../package.json";
+import { User } from "./models/user/interfaces";
+
+export * from "./models/user/interfaces";
+export * from "./LuminosoInstance";
 
 const CLIENT_ENGINE = "react";
 const CLIENT_VERSION = packageJson.version;
 
-export const createInstance = (config: SDKOptions): LuminosoInstance => {
-  return new LuminosoInstance({ clientEngine: CLIENT_ENGINE, clientVersion: CLIENT_VERSION, sdkKey: config.sdkKey });
+export const createInstance = (config: SDKOptions, user?: User): LuminosoInstance => {
+  return new LuminosoInstance(
+    { clientEngine: CLIENT_ENGINE, clientVersion: CLIENT_VERSION, sdkKey: config.sdkKey },
+    user
+  );
 };
