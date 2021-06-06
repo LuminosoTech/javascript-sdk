@@ -21,7 +21,7 @@
     "cover": "nyc report -r lcov",
     "precoveralls": "npm run cover",
     "coveralls": "< coverage/lcov.info coveralls",
-    "prepublishOnly": "npm run build && npm test && npm run test-xbrowser && npm run test-umdbrowser"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
