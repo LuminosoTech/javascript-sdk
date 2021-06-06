@@ -1,5 +1,5 @@
 import { describe, expect, it, beforeEach, jest } from "@jest/globals";
-import EventEmitter from "../src/EventEmitter";
+import { EventEmitter } from "../src/EventEmitter";
 
 describe("event_emitter", () => {
   describe("on", () => {
