@@ -1,6 +1,6 @@
 {
   "name": "@luminoso/luminoso-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JavaScript SDK for Luminoso feature-flags",
   "module": "dist/luminoso.browser.es.min.js",
   "browser": "dist/luminoso.browser.min.js",
@@ -40,16 +40,16 @@
   },
   "homepage": "https://github.com/luminosoTech/javascript-sdk/tree/main/packages/luminoso-sdk",
   "dependencies": {
+    "@luminoso/datafile-manager": "^0.1.0",
     "@luminoso/js-sdk-logging": "^0.1.3",
-    "esbuild": "^0.8.53",
+    "esbuild": "^0.12.6",
     "json-schema": "^0.3.0",
     "murmurhash": "2.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^11.2.0",
-    "@rollup/plugin-typescript": "^8.2.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
     "@types/chai": "^4.2.15",
     "@types/mocha": "^8.2.1",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
@@ -71,14 +71,14 @@
     "nock": "^7.7.2",
     "nyc": "^15.0.1",
     "promise-polyfill": "8.1.0",
-    "rollup": "2.40.0",
-    "rollup-plugin-dts": "^2.0.1",
-    "rollup-plugin-esbuild": "^2.6.1",
+    "rollup": "2.50.6",
+    "rollup-plugin-dts": "^3.0.2",
+    "rollup-plugin-esbuild": "^4.5.0",
     "rollup-plugin-terser": "^7.0.2",
     "sinon": "^9.2.4",
     "ts-loader": "^8.0.17",
     "ts-node": "^9.1.1",
-    "typescript": "^4.2.2",
+    "typescript": "^4.2.4",
     "webpack": "^5.24.2"
   },
   "publishConfig": {

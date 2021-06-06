@@ -1,4 +1,4 @@
-import EventEmitter, { Listener } from "@luminoso/datafile-manager/lib/EventEmitter";
+import { EventEmitter, Listener } from "@luminoso/datafile-manager";
 import { DatafileManager } from "./core/DatafileManager";
 import { Di } from "./di";
 import { User } from "./models/user/interfaces/User";

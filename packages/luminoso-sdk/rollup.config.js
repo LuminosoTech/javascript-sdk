@@ -35,15 +35,8 @@ const esPluginOptions = {
 };
 
 const cjsBundleFor = (platform) => ({
-  plugins: [esbuild({ ...esPluginOptions, minify: true }), json()],
-  external: [
-    "https",
-    "http",
-    "url",
-    "@luminoso/datafile-manager",
-    "@luminoso/datafile-manager/lib/EventEmitter",
-    "@luminoso/js-sdk-logging",
-  ].concat(Object.keys(dependencies || {})),
+  plugins: [esbuild({ ...esPluginOptions, minify: true }), nodeResolve(), json()],
+  external: ["https", "http", "url"].concat(Object.keys(dependencies || {})),
   input: `lib/index.${platform}.ts`,
   output: {
     exports: "named",
@@ -69,31 +62,31 @@ const esmBundle = {
   ],
 };
 
-// const umdBundle = {
-//   plugins: [esbuild(esPluginOptions), json()],
-//   input: "lib/index.browser.ts",
-//   output: [
-//     {
-//       name: "luminosoSdk",
-//       format: "umd",
-//       file: "dist/luminoso.browser.umd.js",
-//       exports: "named",
-//     },
-//     {
-//       name: "luminosoSdk",
-//       format: "umd",
-//       file: "dist/luminoso.browser.umd.min.js",
-//       exports: "named",
-//       plugins: [terser()],
-//       sourcemap: true,
-//     },
-//   ],
-// };
+const umdBundle = {
+  plugins: [esbuild(esPluginOptions), json()],
+  input: "lib/index.browser.ts",
+  output: [
+    {
+      name: "luminosoSdk",
+      format: "umd",
+      file: "dist/luminoso.browser.umd.js",
+      exports: "named",
+    },
+    {
+      name: "luminosoSdk",
+      format: "umd",
+      file: "dist/luminoso.browser.umd.min.js",
+      exports: "named",
+      plugins: [terser()],
+      sourcemap: true,
+    },
+  ],
+};
 
 const bundles = {
   "cjs-browser": cjsBundleFor("browser"),
   esm: esmBundle,
-  // umd: umdBundle,
+  umd: umdBundle,
 };
 
 // Collect all --config-* options and return the matching bundle configs
@@ -115,7 +108,7 @@ export default (args) => {
   return [
     ...bundlesOutput,
     {
-      plugins: [nodeResolve(), dts()],
+      plugins: [dts()],
       input: "lib/index.browser.ts",
       output: {
         file: `types/index.d.ts`,
