@@ -2,14 +2,14 @@ export type Disposer = () => void;
 
 export type Listener = (arg?: any) => void;
 
-interface Listeners {
+export interface Listeners {
   [index: string]: {
     // index is event name
     [index: string]: Listener; // index is listener id
   };
 }
 
-export default class EventEmitter {
+export class EventEmitter {
   private listeners: Listeners = {};
 
   private listenerId = 1;
