@@ -1,7 +1,7 @@
 import { ClientUserBody } from "../models/user/body/ClientUserBody";
 import { NetworkClient } from "../network/NetworkClient";
 
-export class UserRepository {
+export class UserGateway {
   private network: NetworkClient;
 
   constructor(network: NetworkClient) {

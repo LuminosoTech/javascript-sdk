@@ -1,14 +1,14 @@
 import { ClientUserBody } from "../models/user/body/ClientUserBody";
-import { UserRepository } from "../repository/UserRepository";
+import { UserGateway } from "../gateways/UserGateway";
 
 export class UserService {
-  private userRepository: UserRepository;
+  private userGateway: UserGateway;
 
-  constructor(userRepository: UserRepository) {
-    this.userRepository = userRepository;
+  constructor(userGateway: UserGateway) {
+    this.userGateway = userGateway;
   }
 
   public postClientUser = (body: ClientUserBody) => {
-    this.userRepository.postClientUser(body);
+    this.userGateway.postClientUser(body);
   };
 }

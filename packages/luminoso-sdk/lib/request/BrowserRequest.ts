@@ -100,7 +100,11 @@ export function makeGetRequest(reqUrl: string, headers: Headers): AbortableReque
 export function makePostRequest(reqUrl: string, headers: Headers, data: any): AbortableRequest {
   const req = new XMLHttpRequest();
 
+  console.log("makePostRequest", reqUrl);
+
   const responsePromise: Promise<Response> = new Promise((resolve, reject) => {
+    console.log("responsePromise", reqUrl, resolve);
+
     req.open(POST_METHOD, reqUrl, true);
 
     setHeadersInXhr(headers, req);

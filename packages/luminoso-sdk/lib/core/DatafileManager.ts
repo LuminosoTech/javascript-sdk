@@ -7,6 +7,8 @@ export class DatafileManager {
   constructor(sdkKey: string) {
     this.manager = new HttpPollingDatafileManager({ sdkKey, cache: new LocalStorageKeyValueCache(), autoUpdate: true });
     this.manager.start();
+
+    console.log("START");
   }
 
   get datafile(): string {

@@ -15,6 +15,8 @@ export class LuminosoInstance {
     this.di = Di.instance(options.sdkKey!!);
     this.manager = new DatafileManager(options.sdkKey!!);
 
+    console.log("LuminosoInstance init");
+
     if (user) {
       this.di.userService.postClientUser(user);
     }

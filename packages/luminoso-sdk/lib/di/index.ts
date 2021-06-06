@@ -1,7 +1,7 @@
 import { VariationService, UserService } from "../services";
 import { serviceModule } from "./serviceModules";
 import { networkModule } from "./networkModules";
-import { repositoryModule } from "./repositoryModules";
+import gatewayModule from "./gatewayModules";
 
 export class Di {
   private static _instance: Di | undefined = undefined;
@@ -12,11 +12,11 @@ export class Di {
   constructor(clientKey: string) {
     const networkClient = networkModule.networkClient(clientKey);
 
-    const userRepository = repositoryModule.user(networkClient);
-    const variationRepository = repositoryModule.variation(networkClient);
+    const UserGateway = gatewayModule.user(networkClient);
+    const variationGateway = gatewayModule.variation(networkClient);
 
-    this._userService = serviceModule.user(userRepository);
-    this._variationService = serviceModule.variation(variationRepository);
+    this._userService = serviceModule.user(UserGateway);
+    this._variationService = serviceModule.variation(variationGateway);
   }
 
   public static instance = (clientKey: string) => {

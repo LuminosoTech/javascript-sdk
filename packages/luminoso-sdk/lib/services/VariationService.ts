@@ -1,5 +1,5 @@
-import { VariationRepository } from "../repository/VariationRepository";
+import { VariationGateway } from "../gateways/VariationGateway";
 
 export class VariationService {
-  constructor(variationRepository: VariationRepository) {}
+  constructor(variationRepository: VariationGateway) {}
 }

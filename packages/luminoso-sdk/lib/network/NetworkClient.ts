@@ -10,13 +10,15 @@ export class NetworkClient {
 
   constructor(clientKey: string) {
     this.headers = {
-      Authorization: `X-CLIENT-KEY ${clientKey}`,
+      "X-Luminoso-Sdk-Key": `Bearer ${clientKey}`,
     };
 
     this.BASE_URL = getBaseUrl();
   }
 
   public postUser(body: ClientUserBody): AbortableRequest {
+    console.log("ClientUserBody", body);
+
     return makePostRequest(`${this.BASE_URL}/client/user`, this.headers, body);
   }
 }

@@ -8,7 +8,7 @@ Ensure the SDK supports all of the platforms you're targeting. In particular, th
 
 - [Web browsers](https://caniuse.com/#feat=es5)
 
-Once you've validated that the SDK supports the platforms you're targeting, fetch the package from [NPM](https://www.npmjs.com/package/@optimizely/optimizely-sdk). Using `npm`:
+Once you've validated that the SDK supports the platforms you're targeting, fetch the package from [NPM](https://www.npmjs.com/package/@luminoso/luminoso-sdk). Using `npm`:
 
 ```js
 npm install --save @luminoso/luminoso-sdk

@@ -1,6 +1,6 @@
 import { NetworkClient } from "../network/NetworkClient";
 
-export class VariationRepository {
+export class VariationGateway {
   private network: NetworkClient;
 
   constructor(network: NetworkClient) {

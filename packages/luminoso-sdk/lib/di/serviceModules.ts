@@ -1,8 +1,8 @@
-import { UserRepository, VariationRepository } from "../repository";
+import { UserGateway, VariationGateway } from "../gateways";
 import { VariationService, UserService } from "../services";
 
-const user = (repository: UserRepository) => new UserService(repository);
-const variation = (repository: VariationRepository) => new VariationService(repository);
+const user = (gateway: UserGateway) => new UserService(gateway);
+const variation = (gateway: VariationGateway) => new VariationService(gateway);
 
 export const serviceModule = {
   user,

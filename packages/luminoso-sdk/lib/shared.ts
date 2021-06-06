@@ -34,7 +34,7 @@ export interface ListenerPayload {
 
 export type NotificationListener<T extends ListenerPayload> = (notificationData: T) => void;
 
-// An event to be submitted to Optimizely, enabling tracking the reach and impact of
+// An event to be submitted to Luminoso, enabling tracking the reach and impact of
 // tests and feature rollouts.
 export interface Event {
   // URL to which to send the HTTP request.
